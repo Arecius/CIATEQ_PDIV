@@ -1,0 +1,20 @@
+[{
+    "name": "Practica 1",
+    "items": [{
+            "name": "Negativo",
+            "controls":null
+        },
+        {
+            "name": "Transformacion Logaritmica"
+        },
+        {
+            "name": "Transformacion Exponencial"
+        },
+        {
+            "name": "Contrast Stretching"
+        },
+        {
+            "name": "Filtro Promediado Movil"
+        }
+    ]
+}]
