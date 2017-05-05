@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 
 const ImageStyle = {
     padding : "10px"
-}
+};
 class ImageDisplay extends React.Component {
 
     constructor( props ) {
         
-        super( props )
+        super( props );
 
-        this.state = { imageURL: null }
+        this.state = { imageURL: null };
     }
 
     render() {

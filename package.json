@@ -1,13 +1,15 @@
-{ 
+{
   "name": "Tareas",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "serve": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
+    "serve": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "che-serve": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 8003 --inline"
   },
   "devDependencies": {
     "babel-core": "^6.2.1",
+    "babel-eslint": "^7.2.3",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
