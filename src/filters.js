@@ -8,12 +8,14 @@ Filters.List = [
     {
         "name": "Negativo",
         "description": "Negative filter",
-        "component":"Negative"
+        "component":"Negative",
+        "script":"Negative.m"
     },
     {
         "name": "Logaritmico",
         "description": "Logaritmic filter",
-        "component":"Logaritmic"
+        "component":"Logaritmic",
+        "script": "Logaritmic.m"
     }
 ];
 

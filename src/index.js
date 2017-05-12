@@ -8,6 +8,8 @@ import ImageDisplay from './components/img_display';
 import FilterDetail from './components/filter_detail';
 import Filters from './filters';
 
+const webOctave = 'http://localhost:8080/api';
+
 class App extends Component {
     
     constructor( props ){
@@ -18,6 +20,7 @@ class App extends Component {
             
             selectedFilter : null,
             image: null,
+            processedImage: null,
             filterTag: <div />
         };
 
@@ -34,7 +37,10 @@ class App extends Component {
                 </div>
                 <div className="row">
                     <div className="col-md-8">
-                        <ImageDisplay />
+                        <ImageDisplay 
+                            onChange={ image => this.setState( { image } ) } 
+                            image={ this.state.image }  
+                            processedImage={ this.state.processedImage }/>
                     </div>
                     <div className="col-md-4">
                         {this.loadComponent( this.state.selectedFilter )}
@@ -54,13 +60,36 @@ class App extends Component {
             return <div>Please load a filter</div>
         }else{
             const CustomComponent = Filters.Components[ component.component ];
-            return <CustomComponent onChange={ data => this.runScript( data ) } />
+            return <CustomComponent onChange={ data => this.runScript( component.script, data ) } />
         }
         
     }
     
-    runScript( data ){
+    runScript( scriptName, data ){
+        //Make a post and a get request
+        let scriptVars = data || {};
         
+        let requestBody = {
+            scriptName: "scriptName",
+            scriptVars: {test:"test",test2:"test2"}
+        };
+
+        let headers = new Headers({
+            'Content-Type': 'application/json'
+            
+        })
+
+        fetch( `${webOctave}/createJob`, {
+            method: 'POST',
+            headers: headers,
+            body: requestBody,
+            mode: 'no-cors'
+        }).then( response => {
+
+           console.log( response )
+
+        })
+
     }
     
 };

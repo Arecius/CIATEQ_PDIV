@@ -2,8 +2,7 @@
 
 import React from 'react';
 
-const Negative = props => {
-    
+const Negative = props => { 
    
     return (
         <div>
