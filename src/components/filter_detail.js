@@ -7,9 +7,9 @@ const FilterDetail = ( { filter } ) => {
         return <div>Please load a filter to display its information</div>;
     }else{
         return (
-            <div>
+            <div className="form-group row">
                 <label>{ filter.name }</label>
-                <p>{ filter.description }</p>
+                <div>{ filter.description }</div>
             </div>
         );
     }

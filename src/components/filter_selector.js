@@ -13,15 +13,11 @@ const FilterSelector = props => {
     });
         
     return (
-        <div className="container-fluid">
-            <div className="row">
-                <label>Seleccione un programa</label>
-            </div>
-            <div className="row">
-                <select className="form-control" onChange={ event => { props.onFilterSelected( props.filters.List[ event.target.value ] ) } } >
-                    {filters}
-                </select>
-            </div>
+        <div className="form-group">
+            <label >Seleccione un programa</label>
+            <select className="form-control" onChange={ event => { props.onFilterSelected( props.filters.List[ event.target.value ] ) } } >
+                {filters}
+            </select>
         </div> 
 
     );

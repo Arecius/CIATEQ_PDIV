@@ -8,7 +8,7 @@ import ImageDisplay from './components/img_display';
 import FilterDetail from './components/filter_detail';
 import Filters from './filters';
 
-const webOctave = 'http://localhost:8080/api';
+const webOctave = 'http://node9.codenvy.io:48441/api';
 
 class App extends Component {
     
@@ -31,11 +31,9 @@ class App extends Component {
     render(){
         return (
             <div className="row" >
-                <div className="row">
-                    <FilterSelector 
-                        filters={ Filters } 
-                        onFilterSelected={ selectedFilter => { this.setState( { selectedFilter } ); } } />
-                </div>
+                <FilterSelector 
+                    filters={ Filters } 
+                    onFilterSelected={ selectedFilter => { this.setState( { selectedFilter } ); } } />
                 <div className="row">
                     <div className="col-md-8">
                         <ImageDisplay 
@@ -47,10 +45,7 @@ class App extends Component {
                         {this.loadComponent( this.state.selectedFilter )}
                     </div>
                 </div>
-                <div className="row">
-                    <FilterDetail filter={ this.state.selectedFilter } />
-                </div>
-                
+                <FilterDetail filter={ this.state.selectedFilter } />   
             </div>
         )
     }
@@ -101,4 +96,4 @@ class App extends Component {
 
 
 
-ReactDOM.render( <App/>, document.querySelector(".container-fluid") );    
+ReactDOM.render( <App/>, document.querySelector("#container") );    
