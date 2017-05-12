@@ -21,6 +21,7 @@ class App extends Component {
             selectedFilter : null,
             image: null,
             processedImage: null,
+            imageFile: null,
             filterTag: <div />
         };
 
@@ -38,7 +39,7 @@ class App extends Component {
                 <div className="row">
                     <div className="col-md-8">
                         <ImageDisplay 
-                            onChange={ image => this.setState( { image } ) } 
+                            onChange={ ( image, imageFile ) => this.setState( { image, imageFile } ) } 
                             image={ this.state.image }  
                             processedImage={ this.state.processedImage }/>
                     </div>
@@ -69,25 +70,29 @@ class App extends Component {
         //Make a post and a get request
         let scriptVars = data || {};
         
-        let requestBody = {
-            scriptName: "scriptName",
-            scriptVars: {test:"test",test2:"test2"}
-        };
+        let requestBody = new FormData();
 
-        let headers = new Headers({
-            'Content-Type': 'application/json'
-            
-        })
+        requestBody.append( "scriptName", scriptName );
+        requestBody.append( "scriptVars", JSON.stringify( {test:"test",test2:"test2"} ) );
+        requestBody.append( "image", this.state.imageFile );
+        
+
+        let headers = new Headers();
+        
+
 
         fetch( `${webOctave}/createJob`, {
-            method: 'POST',
+            method: 'POST', 
             headers: headers,
-            body: requestBody,
-            mode: 'no-cors'
+            body: requestBody
+        }).then( ( response ) => {
+            return response.json();
+        }).then( jsonObject => {
+           return fetch( `${webOctave}/retrieve?id=${jsonObject.retrieveId}`);
         }).then( response => {
-
-           console.log( response )
-
+            return response.blob();
+        }).then( blob => {
+            this.setState( { processedImage: URL.createObjectURL(blob) });
         })
 
     }

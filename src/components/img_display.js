@@ -13,7 +13,7 @@ const  ImageDisplay = props => {
             let reader = new FileReader();
 
             reader.onload = event =>{
-                props.onChange( event.target.result );
+                props.onChange( event.target.result, file );
             }
 
             reader.readAsDataURL( file );
