@@ -3,12 +3,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import _ from 'lodash';
+
 import FilterSelector from './components/filter_selector';
 import ImageDisplay from './components/img_display';
 import FilterDetail from './components/filter_detail';
 import Filters from './filters';
 
-const webOctave = 'http://node9.codenvy.io:48441/api';
+
+//const webOctave = 'http://node9.codenvy.io:48441/api';
+const webOctave = 'http://localhost:8081/api';
 
 class App extends Component {
     
@@ -29,19 +33,22 @@ class App extends Component {
     }
     
     render(){
+
+        
         return (
             <div className="row" >
                 <FilterSelector 
                     filters={ Filters } 
                     onFilterSelected={ selectedFilter => { this.setState( { selectedFilter } ); } } />
                 <div className="row">
-                    <div className="col-md-8">
+                    <div className="col-md-7">
                         <ImageDisplay 
                             onChange={ ( image, imageFile ) => this.setState( { image, imageFile } ) } 
                             image={ this.state.image }  
-                            processedImage={ this.state.processedImage }/>
+                            processedImage={ this.state.processedImage }
+                            />
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-5">
                         {this.loadComponent( this.state.selectedFilter )}
                     </div>
                 </div>
@@ -55,8 +62,11 @@ class App extends Component {
         if( !component ){
             return <div>Please load a filter</div>
         }else{
+
+            const runScript = _.debounce( data => { this.runScript( component.script, data ) }, 300 );
+
             const CustomComponent = Filters.Components[ component.component ];
-            return <CustomComponent onChange={ data => this.runScript( component.script, data ) } />
+            return <CustomComponent onChange={ runScript } />
         }
         
     }
@@ -68,7 +78,7 @@ class App extends Component {
         let requestBody = new FormData();
 
         requestBody.append( "scriptName", scriptName );
-        requestBody.append( "scriptVars", JSON.stringify( {test:"test",test2:"test2"} ) );
+        requestBody.append( "scriptVars", JSON.stringify( data ) );
         requestBody.append( "image", this.state.imageFile );
         
 

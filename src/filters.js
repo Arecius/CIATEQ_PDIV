@@ -6,16 +6,34 @@ const Filters = {};
 
 Filters.List = [
     {
-        "name": "Negativo",
+        "name": "1.1 - Negativo",
         "description": "Negative filter",
         "component":"Negative",
         "script":"Negative.m"
     },
     {
-        "name": "Logaritmico",
+        "name": "1.2 - Logaritmico",
         "description": "Logaritmic filter",
         "component":"Logaritmic",
-        "script": "Logaritmic.m"
+        "script": "Logarithmic.m"
+    },
+    {
+        "name": "1.3 - Exponencial",
+        "description": "Exponential filter",
+        "component":"Exponential",
+        "script": "Exponential.m"
+    },
+    {
+        "name": "1.4 - Contrast Stretching",
+        "description": "Contrast-stretching filter",
+        "component":"Contrast",
+        "script": "Contrast.m"
+    },
+    {
+        "name": "1.5 - Filtro Promediado Movil",
+        "description": "Filtro Promediado Movil",
+        "component":"MovingAverage",
+        "script": "MovingAverage.m"
     }
 ];
 

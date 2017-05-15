@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from '../slider';
 
-class Logaritmic extends Component {
+class Exponential extends Component {
 
     constructor( props ){
         super( props );
@@ -14,16 +14,15 @@ class Logaritmic extends Component {
     render() {
         return (
             <div className="container-fluid form-group">
-                <label>Controles - Transformacion Logaritmica</label>
+                <label>Controles - Transformacion Exponencial</label>
                 <div className="row form-group">
                     <div>
-                        <Slider title="Constante Logaritmica" 
+                        <Slider title="Constante Exponencial" 
                             onChange={ constant => { 
                                 this.setState( { constant } );
                                 this.props.onChange( Object.values( this.state ) );
                                 } }/>
                     </div>
-                    {/*<input className="form-control" type="button" value="Aplicar filtro" onClick={ event => { props.onChange() } } />*/}
                 </div>
             </div>
         )
@@ -32,4 +31,4 @@ class Logaritmic extends Component {
     
 };
 
-export default Logaritmic
+export default Exponential;
