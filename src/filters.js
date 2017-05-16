@@ -34,7 +34,37 @@ Filters.List = [
         "description": "Filtro Promediado Movil",
         "component":"MovingAverage",
         "script": "MovingAverage.m"
-    }
+    },
+    {
+        "name": "2.1 - Gradiente",
+        "description": "Filtro Promediado Movil",
+        "component":"Gradient",
+        "script": "Gradient.m"
+    },
+    {
+        "name": "2.2 - Laplaciano",
+        "description": "Filtro Promediado Movil",
+        "component":"Laplacian",
+        "script": "Laplacian.m"
+    },
+    {
+        "name": "2.3 - High boost",
+        "description": "Filtro Promediado Movil",
+        "component":"HighBoost",
+        "script": "HighBoost.m"
+    },
+    {
+        "name": "2.4 - Paso bajo Butterworth",
+        "description": "Filtro Promediado Movil",
+        "component":"LPButterworth",
+        "script": "LPButterworth.m"
+    },
+    {
+        "name": "2.5 - Paso alto Gaussiano",
+        "description": "Filtro Promediado Movil",
+        "component":"HPGaussian",
+        "script": "HPGaussian.m"
+    },
 ];
 
 Filters.Components = Components;

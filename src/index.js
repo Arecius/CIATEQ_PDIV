@@ -11,7 +11,7 @@ import FilterDetail from './components/filter_detail';
 import Filters from './filters';
 
 
-//const webOctave = 'http://node9.codenvy.io:48441/api';
+//const webOctave = 'http://node19.codenvy.io:34341/api';
 const webOctave = 'http://localhost:8081/api';
 
 class App extends Component {
@@ -62,7 +62,7 @@ class App extends Component {
         if( !component ){
             return <div>Please load a filter</div>
         }else{
-
+        
             const runScript = _.debounce( data => { this.runScript( component.script, data ) }, 300 );
 
             const CustomComponent = Filters.Components[ component.component ];
@@ -73,12 +73,15 @@ class App extends Component {
     
     runScript( scriptName, data ){
         //Make a post and a get request
-        let scriptVars = data || {};
         
         let requestBody = new FormData();
 
         requestBody.append( "scriptName", scriptName );
-        requestBody.append( "scriptVars", JSON.stringify( data ) );
+        
+        if( data ){
+            requestBody.append( "scriptVars", JSON.stringify( data ) );
+        }
+
         requestBody.append( "image", this.state.imageFile );
         
 

@@ -4,7 +4,7 @@ export Exponential from './exponential';
 export Contrast from './contrast';
 export MovingAverage from './moving_average';
 export Gradient from './gradient';
-export Laplassian from './Laplassian';
+export Laplacian from './laplacian';
 export HighBoost from './high_boost';
 export LPButterworth from './butterworth';
 export HPGaussian from './gaussian';
