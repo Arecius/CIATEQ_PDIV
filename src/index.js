@@ -11,8 +11,8 @@ import FilterDetail from './components/filter_detail';
 import Filters from './filters';
 
 
-//const webOctave = 'http://node19.codenvy.io:34341/api';
-const webOctave = 'http://localhost:8081/api';
+const webOctave = 'http://node30.codenvy.io:33426/api';
+//const webOctave = 'http://localhost:8081/api';
 
 class App extends Component {
     
