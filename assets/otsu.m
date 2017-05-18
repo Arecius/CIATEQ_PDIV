@@ -2,7 +2,7 @@
 %%P(k) = w0
 %%Mg = w1
 %%M(k)
-close all;clear all;clc
+  close all;clear all;clc
 %%================================================================================================
 I=imread('OtsuDocImage.bmp'); % Read the Image
 figure(1),imshow(I); % display the  Original Image
