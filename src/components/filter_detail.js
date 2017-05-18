@@ -4,12 +4,17 @@ import React from 'react';
 const FilterDetail = ( { filter } ) => {
 
     if(!filter){
-        return <div>Please load a filter to display its information</div>;
+        return (
+            <div>
+                <label>Descripcion</label>
+                <p>Seleccione un filtro para mostrar su informacion</p>
+            </div>
+            );
     }else{
         return (
             <div className="form-group">
                 <label>{ filter.name }</label>
-                <div>{ filter.description }</div>
+                <p>{ filter.description }</p>
             </div>
         );
     }

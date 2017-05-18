@@ -33,10 +33,10 @@ const  ImageDisplay = props => {
 
             <div className="row" >
 
-                <div className="col-md-6" >
+                <div className="col-md-4" >
                     <div style={ImageStyle}>
                         <div className="row"> 
-                            <label>Imagen Original</label>
+                            <label>Imagen original</label>
                         </div>
                         <div className="row"> 
                             <img className="img-responsive" src={ props.image }/>
@@ -44,13 +44,24 @@ const  ImageDisplay = props => {
                     </div>
                 </div>
 
-                <div className="col-md-6" >
+                <div className="col-md-4" >
                     <div style={ImageStyle}>
                         <div className="row">
-                            <label>Imagen Procesada</label>
+                            <label>Imagen procesada</label>
                         </div>
                         <div className="row"> 
-                            <img className="img-responsive" src={ props.processedImage }/>
+                            <img className="img-responsive" 
+                                    src={ props.processedImage }/>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-4" >
+                    <div style={ImageStyle}>
+                        <div className="row">
+                            <label>Datos adicionales</label>
+                        </div>
+                        <div className="row"> 
+                            <img className="img-responsive" src={ props.assetImage }/>
                         </div>
                     </div>
                 </div>

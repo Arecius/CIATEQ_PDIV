@@ -65,6 +65,12 @@ Filters.List = [
         "component":"HPGaussian",
         "script": "HPGaussian.m"
     },
+    {
+        "name": "3.1 - Otsu",
+        "description": "Filtro Promediado Movil",
+        "component":"Otsu",
+        "script": "Otsu.m"
+    },
 ];
 
 Filters.Components = Components;

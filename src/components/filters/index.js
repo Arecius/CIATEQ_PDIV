@@ -8,3 +8,4 @@ export Laplacian from './laplacian';
 export HighBoost from './high_boost';
 export LPButterworth from './butterworth';
 export HPGaussian from './gaussian';
+export Otsu from './otsu';

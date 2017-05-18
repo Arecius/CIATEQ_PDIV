@@ -26,6 +26,7 @@ class App extends Component {
             image: null,
             processedImage: null,
             imageFile: null,
+            assetImage:null,
             filterTag: <div />
         };
 
@@ -45,6 +46,7 @@ class App extends Component {
                             onChange={ ( image, imageFile ) => this.setState( { image, imageFile } ) } 
                             image={ this.state.image }  
                             processedImage={ this.state.processedImage }
+                            assetImage={this.state.assetImage}
                             />
                     </div>
                     <div className="col-md-5">
@@ -59,7 +61,12 @@ class App extends Component {
     loadComponent( component ){
         
         if( !component ){
-            return <div>Please load a filter</div>
+            return (
+                <div>
+                    <label>Controles</label>
+                    <p>Seleccione un filtro para mostrar su controles</p>
+                </div>
+            );
         }else{
         
             const runScript = _.debounce( data => { this.runScript( component.script, data ) }, 300 );
@@ -95,11 +102,17 @@ class App extends Component {
         }).then( ( response ) => {
             return response.json();
         }).then( jsonObject => {
-           return fetch( `${webOctave}/retrieve?id=${jsonObject.retrieveId}`);
-        }).then( response => {
-            return response.blob();
-        }).then( blob => {
-            this.setState( { processedImage: URL.createObjectURL(blob) });
+            let promises = Object.values( jsonObject )
+                            .map( id =>{
+                                return fetch( `${webOctave}/retrieve?id=${id}`);
+                            })
+            return Promise.all( promises )
+            //return fetch( `${webOctave}/retrieve?id=${jsonObject.retrieveId}`);
+        }).then( responses => {
+            return Promise.all( responses.map( response => { return response.blob() } ));
+            //return response.blob();
+        }).then( blobs => {
+            this.setState( { processedImage: URL.createObjectURL(blobs[0]), assetImage:URL.createObjectURL(blobs[1])  });
         })
 
     }
