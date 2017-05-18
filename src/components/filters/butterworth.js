@@ -17,17 +17,17 @@ class LPButterworth extends Component {
         return (
             <div className="container-fluid form-group">
             
-                <label>Controles - High Boost</label>
+                <label>Controles -  Paso bajo Butterworth</label>
 
                 <div className="row">
-                    <Slider title="Grade" 
+                    <Slider title="Grado" 
                         min={1}
                         max={10}
                         onChange={ grade => {
                             this.setState( { grade } );
                             this.props.onChange( Object.values( this.state ) );
                             } }/>
-                    <Slider title="Cutoff" 
+                    <Slider title="Corte" 
                         min={1}
                         max={50}
                         onChange={ cutoff => { 

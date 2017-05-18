@@ -7,8 +7,8 @@ class Contrast extends Component {
         super( props );
 
         this.state = {
-            slope: 1,
-            luminosity: 2
+            low: 0,
+            high: 1
         };
     }
 
@@ -18,18 +18,24 @@ class Contrast extends Component {
                 <label>Controles - Constrast Stretching</label>
                 <div className="row">
                     
-                    <Slider title="Pendiente de la funcion" 
-                        onChange={ slope => { 
-                            this.setState( { slope } );
+                    <Slider title="Limite inferior" 
+                        min={0}
+                        max={1}
+                        value={this.state.low}
+                        onChange={ low => { 
+                            this.setState( { low } );
                             this.props.onChange( Object.values( this.state ) );
                             } }/>
                     
                 </div>
                 <div className="row">
                     
-                    <Slider title="Constante de Luminosidad" 
-                        onChange={ luminosity => { 
-                            this.setState( { luminosity } );
+                    <Slider title="Limite Superior" 
+                        min={0}
+                        max={1}
+                        value={this.state.high}
+                        onChange={ high => { 
+                            this.setState( { high } );
                             this.props.onChange( Object.values( this.state ) );
                             } }/>
                     

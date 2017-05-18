@@ -18,7 +18,10 @@ class Logaritmic extends Component {
                 <div className="row form-group">
                     <div>
                         <Slider title="Constante Logaritmica" 
+                            min={0}
+                            max={1}
                             onChange={ constant => { 
+                                
                                 this.setState( { constant } );
                                 this.props.onChange( Object.values( this.state ) );
                                 } }/>

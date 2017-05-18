@@ -19,7 +19,7 @@ class HPGaussian extends Component {
                 <label>Controles - Gaussian</label>
 
                 <div className="row">
-                    <Slider title="Grade" 
+                    <Slider title="Sigma" 
                         min={1}
                         max={10}
                         onChange={ sigma => {

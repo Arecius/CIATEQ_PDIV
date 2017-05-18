@@ -19,7 +19,9 @@ class Laplacian extends Component {
                 <label>Controles - Laplaciano</label>
 
                 <div className="row">
-                    <Slider title="Pendiente de la funcion" 
+                    <Slider title="Alpha" 
+                        min={0}
+                        max={1}
                         onChange={ threshold => { 
                             this.setState( { threshold } );
                             this.props.onChange( Object.values( this.state ) );

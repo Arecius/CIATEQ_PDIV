@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Slider from '../slider';
 class MovingAverage extends Component {
 
     constructor( props ){
@@ -15,15 +16,16 @@ class MovingAverage extends Component {
             <div className="container-fluid form-group">
                 <label>Controles - Filtro Promediado Movil</label>
                 <div className="row">
+
+                    <Slider title="Tamaño de la mascara" 
+                        min={3}
+                        max={9}
+                        step={1}
+                        onChange={ mask => { 
+                            this.setState( { mask } );
+                            this.props.onChange( Object.values( this.state ) );
+                            } }/> 
                     
-                    <input type="radio" name="mask" value="3" onClick={ event => {
-        this.setState({ mask: event.target.value });
-        this.props.onChange( [ this.state.mask ] );
-    } } /> 3x3
-                    <input type="radio" name="mask" value="5" onClick={ event => {
-        this.setState({ mask: event.target.value });
-        this.props.onChange( [ this.state.mask ] );
-    } } /> 5x5
 
                 </div>
 

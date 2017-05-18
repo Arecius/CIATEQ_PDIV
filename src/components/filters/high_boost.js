@@ -20,6 +20,8 @@ class HighBoost extends Component {
 
                 <div className="row">
                     <Slider title="A" 
+                        min={0}
+                        max={10}
                         onChange={ threshold => { 
                             this.setState( { threshold } );
                             this.props.onChange( Object.values( this.state ) );

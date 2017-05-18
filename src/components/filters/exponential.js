@@ -18,6 +18,8 @@ class Exponential extends Component {
                 <div className="row form-group">
                     <div>
                         <Slider title="Constante Exponencial" 
+                            min={0.1}
+                            max={30}
                             onChange={ constant => { 
                                 this.setState( { constant } );
                                 this.props.onChange( Object.values( this.state ) );

@@ -25,7 +25,7 @@ class Slider extends Component {
                     <input className="form-control" type="range" 
                         min={this.props.min*100} 
                         max={this.props.max*100} 
-                        step="1"
+                        step={this.props.step*100}
                         value={this.state.value*100}
                         onChange={ (event) => { 
                             this.setState( { value: Number( event.target.value * 0.01 ).toFixed( 2 ) } )
