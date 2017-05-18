@@ -71,6 +71,12 @@ Filters.List = [
         "component":"Otsu",
         "script": "Otsu.m"
     },
+    {
+        "name": "3.2 - Procesamiento de documentos",
+        "description": "Filtro Promediado Movil",
+        "component":"Documents",
+        "script": "Documents.m"
+    },
 ];
 
 Filters.Components = Components;
