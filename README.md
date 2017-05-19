@@ -32,6 +32,6 @@ The port of the web server can be changed on the script defintion on the package
 
 ## Using the App
 
-The app should be available on http://localhost:8003 by default or http://localhost:<por> if other port is configured
+The app should be available on http://localhost:8003 by default or http://localhost:port if other port is configured
 
 
